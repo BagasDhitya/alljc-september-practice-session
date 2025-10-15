@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Caveat&family=Figtree:ital,wght@0,300..900;1,300..900&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color: #ecf2f8;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.testimonials {
+    display: grid;
+    gap: 24px;
+    max-width: 1100px;
+}
+
+.card {
+    border-radius: 10px;
+    padding: 25px;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.profile img {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.4)
+}
+
+.info h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.info p {
+    font-size: 0.75rem;
+    opacity: 0.7;
+}
+
+.card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.card p {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    line-height: 1.5;
+}
+
+.card-daniel {
+    background-color: hsl(263, 55%, 52%);
+    background-repeat: no-repeat;
+    background-position: top right 80px;
+}
+
+.card-jonathan {
+    background-color: hsl(217, 19%, 35%);
+}
+
+.card-jeanette {
+    background-color: #fff;
+    color: hsl(217, 19%, 35%)
+}
+
+.card-patrick {
+    background-color: hsl(219, 29%, 14%);
+}
+
+.card-kira {
+    background-color: #fff;
+    color: hsl(217, 19%, 35%)
+}
+
+/* Desktop Layout */
+@media (min-width: 768px){
+    .testimonials {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto;
+    }
+
+    .card-daniel {
+        grid-column: span 2;
+    }
+
+    .card-jonathan {
+        grid-column: span 1;
+    }
+
+    .card-jeanette {
+        grid-column: 1 / 2;
+    }
+
+    .card-patrick {
+        grid-column: span 2;
+    }
+
+    .card-kira {
+        grid-column: 4 / 5;
+        grid-row: 1 / 3;
+    }
+}

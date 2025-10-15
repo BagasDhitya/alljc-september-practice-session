@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Profil Pengguna</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#cf6317",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211811",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-stone-900 dark:text-stone-100">
+    <div class="flex flex-col min-h-screen">
+        <header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div class="flex items-center p-4">
+                <button class="p-2 -ml-2">
+                    <span class="material-symbols-outlined text-stone-900 dark:text-stone-100"> arrow_back </span>
+                </button>
+                <h1 class="text-xl font-bold flex-1 text-center pr-8 text-stone-900 dark:text-stone-100">Profil Saya
+                </h1>
+            </div>
+        </header>
+        <main class="flex-1 p-4">
+            <div class="flex flex-col items-center">
+                <div class="relative">
+                    <img alt="Foto Profil" class="w-32 h-32 rounded-full object-cover border-4 border-primary"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtaQd78guID2mjPagAqqkYQlH53fweNQaieT-q7LM4M0mv_E1yiIbKm-bax8rWX7axRI8H0PjNwiSkkvWoKHW-dU-uL3la5P7A7FDl8IRHmSK6Q1v7PUqb_9rmBAetrUvUcNfzSOztSyHJYvDSbqrzdOtqb2MhbSXShQGSDLYNke9CC-z4xUqOmpYFgvdmco4x3fMuh763i9JLz-YBvn40Qq1T3Vidx7etMdfNu1tTai88PKyAVsQzg2cIg1T1OuTGCvp9IAYbbv4" />
+                    <button class="absolute bottom-1 right-1 bg-primary text-white rounded-full p-2">
+                        <span class="material-symbols-outlined text-base"> edit </span>
+                    </button>
+                </div>
+                <h2 class="text-2xl font-bold mt-4 text-stone-900 dark:text-stone-100">Ahmad Dhani</h2>
+                <p class="text-stone-600 dark:text-stone-400">ahmaddhani@email.com</p>
+            </div>
+            <div class="mt-8 space-y-4">
+                <div class="bg-primary/10 dark:bg-primary/10 rounded-xl p-4">
+                    <h3 class="text-lg font-bold text-stone-900 dark:text-stone-100 mb-2">Informasi Akun</h3>
+                    <div class="space-y-3">
+                        <a class="flex items-center justify-between" href="#">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary"> account_circle </span>
+                                <span class="text-stone-900 dark:text-stone-100">Detail Profil</span>
+                            </div>
+                            <span class="material-symbols-outlined text-stone-600 dark:text-stone-400"> chevron_right
+                            </span>
+                        </a>
+                        <a class="flex items-center justify-between" href="#">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary"> home </span>
+                                <span class="text-stone-900 dark:text-stone-100">Alamat Tersimpan</span>
+                            </div>
+                            <span class="material-symbols-outlined text-stone-600 dark:text-stone-400"> chevron_right
+                            </span>
+                        </a>
+                        <a class="flex items-center justify-between" href="#">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary"> credit_card </span>
+                                <span class="text-stone-900 dark:text-stone-100">Metode Pembayaran</span>
+                            </div>
+                            <span class="material-symbols-outlined text-stone-600 dark:text-stone-400"> chevron_right
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-primary/10 dark:bg-primary/10 rounded-xl p-4">
+                    <h3 class="text-lg font-bold text-stone-900 dark:text-stone-100 mb-2">Riwayat</h3>
+                    <div class="space-y-3">
+                        <a class="flex items-center justify-between" href="#">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary"> history </span>
+                                <span class="text-stone-900 dark:text-stone-100">Riwayat Pesanan</span>
+                            </div>
+                            <span class="material-symbols-outlined text-stone-600 dark:text-stone-400"> chevron_right
+                            </span>
+                        </a>
+                        <a class="flex items-center justify-between" href="#">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary"> favorite </span>
+                                <span class="text-stone-900 dark:text-stone-100">Favorit Saya</span>
+                            </div>
+                            <span class="material-symbols-outlined text-stone-600 dark:text-stone-400"> chevron_right
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="bg-primary/10 dark:bg-primary/10 rounded-xl p-4">
+                    <h3 class="text-lg font-bold text-stone-900 dark:text-stone-100 mb-2">Pengaturan</h3>
+                    <div class="space-y-3">
+                        <a class="flex items-center justify-between" href="#">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary"> notifications </span>
+                                <span class="text-stone-900 dark:text-stone-100">Notifikasi</span>
+                            </div>
+                            <span class="material-symbols-outlined text-stone-600 dark:text-stone-400"> chevron_right
+                            </span>
+                        </a>
+                        <a class="flex items-center justify-between" href="#">
+                            <div class="flex items-center gap-3">
+                                <span class="material-symbols-outlined text-primary"> lock </span>
+                                <span class="text-stone-900 dark:text-stone-100">Privasi &amp; Keamanan</span>
+                            </div>
+                            <span class="material-symbols-outlined text-stone-600 dark:text-stone-400"> chevron_right
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="pt-4">
+                    <button
+                        class="w-full bg-transparent border border-primary/50 text-primary font-bold py-3 px-6 rounded-lg text-base">Keluar</button>
+                </div>
+            </div>
+        </main>
+        <footer
+            class="sticky bottom-0 bg-background-light dark:bg-background-dark border-t border-primary/20 dark:border-primary/30 pb-safe">
+            <nav class="flex justify-around p-2">
+                <a class="flex flex-col items-center gap-1 text-stone-600 dark:text-stone-400" href="beranda.html">
+                    <span class="material-symbols-outlined"> home </span>
+                    <span class="text-xs">Beranda</span>
+                </a>
+                <a class="flex flex-col items-center gap-1 text-stone-600 dark:text-stone-400" href="menu.html">
+                    <span class="material-symbols-outlined"> coffee </span>
+                    <span class="text-xs">Menu</span>
+                </a>
+                <a class="flex flex-col items-center gap-1 text-stone-600 dark:text-stone-400" href="keranjang.html">
+                    <span class="material-symbols-outlined"> shopping_cart </span>
+                    <span class="text-xs">Keranjang</span>
+                </a>
+                <a class="flex flex-col items-center gap-1 text-primary" href="profil.html">
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;"> person </span>
+                    <span class="text-xs font-bold">Profil</span>
+                </a>
+            </nav>
+        </footer>
+    </div>
+</body>
+
+</html>

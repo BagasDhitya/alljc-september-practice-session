@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Keranjang Belanja - Kopi Nusantara</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Epilogue:wght@400;500;700;900&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#cf6317",
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#211811",
+                    },
+                    fontFamily: {
+                        "display": ["Epilogue"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-stone-900 dark:text-stone-100">
+    <div class="flex flex-col min-h-screen">
+        <header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+            <div class="flex items-center p-4">
+                <button class="p-2 -ml-2">
+                    <span class="material-symbols-outlined text-stone-900 dark:text-stone-100"> arrow_back </span>
+                </button>
+                <h1 class="text-xl font-bold flex-1 text-center pr-8 text-stone-900 dark:text-stone-100">Keranjang</h1>
+            </div>
+        </header>
+        <main class="flex-1 p-4 space-y-6">
+            <div class="space-y-4">
+                <div class="flex items-center gap-4 bg-primary/10 dark:bg-primary/10 rounded-xl p-4">
+                    <img alt="Kopi Gayo" class="w-20 h-20 object-cover rounded-lg"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDszW0AIMKMWSC454RwZmU90kigR05_xdrTanUItzAMW9wnZOACF64HrEkiiVAKDibbrt86hfVUBd07sVMljSO_1LDNK9tz9umi5dpmeTHbPba94kdqIJavsyakM8dgnxjZiFwr6VznV_6g-upzjxSS7HCPijjTexJoPnEWE3_0eoZqbsui4AszKmnxOx8EGoh9E1z-dqcuitSUv83wUWlfx8Fmt0yjAG_cKZ_OTiYtHkcREk_lrzBZtU86UR8rlBtOt_KhWf3Ek0" />
+                    <div class="flex-1">
+                        <h2 class="text-lg font-bold text-stone-900 dark:text-stone-100">Kopi Gayo</h2>
+                        <p class="text-sm text-stone-600 dark:text-stone-400">Rp 25.000</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary/20 dark:bg-primary/30 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl"> remove </span>
+                            </button>
+                            <span class="font-bold text-lg">1</span>
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary/20 dark:bg-primary/30 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl"> add </span>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="self-start p-2">
+                        <span class="material-symbols-outlined text-stone-500 dark:text-stone-400"> delete </span>
+                    </button>
+                </div>
+                <div class="flex items-center gap-4 bg-primary/10 dark:bg-primary/10 rounded-xl p-4">
+                    <img alt="Kopi Toraja" class="w-20 h-20 object-cover rounded-lg"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcAxk3JGvcouzGnvJMrjNLq_G1hy8CNDI7u5p6AdCxYsLGckwzXdYtFLupAeNhx4fpVVdJPuHgBIr9adx-YyBxK9yF_vwdSDBBm2JvzLFQyFezFwHQAl0g0zzEkPjtqvhTzIW6b4NR1p6K0LIfco_ebkLXMR5zWpZoBwidxWlZmAE3yrpLVlrVbrEGnzO2hMa2DAZq1ofSwBLJhsLWgxcf06WoY6wNucLBZCpJBIyA9jncesysGqs2mR18ya5jzegVlnPbXpF7fMo" />
+                    <div class="flex-1">
+                        <h2 class="text-lg font-bold text-stone-900 dark:text-stone-100">Kopi Toraja</h2>
+                        <p class="text-sm text-stone-600 dark:text-stone-400">Rp 28.000</p>
+                        <div class="flex items-center gap-2 mt-2">
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary/20 dark:bg-primary/30 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl"> remove </span>
+                            </button>
+                            <span class="font-bold text-lg">2</span>
+                            <button
+                                class="w-8 h-8 rounded-full bg-primary/20 dark:bg-primary/30 text-primary flex items-center justify-center">
+                                <span class="material-symbols-outlined text-xl"> add </span>
+                            </button>
+                        </div>
+                    </div>
+                    <button class="self-start p-2">
+                        <span class="material-symbols-outlined text-stone-500 dark:text-stone-400"> delete </span>
+                    </button>
+                </div>
+            </div>
+            <div class="border-t border-dashed border-primary/30 my-6"></div>
+            <div>
+                <h3 class="text-lg font-bold mb-4">Ringkasan Belanja</h3>
+                <div class="space-y-2 text-stone-800 dark:text-stone-300">
+                    <div class="flex justify-between">
+                        <span>Subtotal</span>
+                        <span>Rp 81.000</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Pajak (10%)</span>
+                        <span>Rp 8.100</span>
+                    </div>
+                    <div class="flex justify-between font-bold text-stone-900 dark:text-stone-100 text-lg mt-2">
+                        <span>Total</span>
+                        <span>Rp 89.100</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer
+            class="sticky bottom-0 bg-background-light dark:bg-background-dark p-4 border-t border-primary/20 dark:border-primary/30 pb-safe">
+            <button class="w-full bg-primary text-white font-bold py-4 px-6 rounded-xl text-lg">Lanjutkan ke
+                Pembayaran</button>
+        </footer>
+    </div>
+
+</body>
+
+</html>
