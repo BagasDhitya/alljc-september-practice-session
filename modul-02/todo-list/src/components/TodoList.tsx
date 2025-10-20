@@ -3,51 +3,32 @@ import TodoItem from "./TodoItem"
 
 interface TodoListProps {
     isDark: boolean,
+    todos: {
+        id: number,
+        text: string,
+        completed: boolean
+    }[],
+    onToggle: (id: number) => void,
+    onDelete: (id: number) => void
 }
-export default function TodoList({ isDark }: TodoListProps) {
-
-    const todos = [
-        {
-            id: 1,
-            text: 'Complete online JavaScript course',
-            completed: true
-        },
-        {
-            id: 2,
-            text: 'Jog around the park 3x',
-            completed: false
-        },
-        {
-            id: 3,
-            text: '10 minutes meditation',
-            completed: false
-        },
-        {
-            id: 4,
-            text: 'Read for 1 hour',
-            completed: false
-        },
-        {
-            id: 5,
-            text: 'Pick up groceries',
-            completed: false
-        },
-        {
-            id: 6,
-            text: 'Complete Todo App on Frontend Mentor',
-            completed: false
-        }
-    ]
-
+export default function TodoList({ isDark, todos, onToggle, onDelete }: TodoListProps) {
     return (
         <div className={`${isDark ? "bg-slate-800" : "bg-white"} mt-4 rounded-md shadow-md overflow-hidden`}>
-            {todos.map((todo) => (
-                <TodoItem
-                    isDark={isDark}
-                    key={todo.id}
-                    todo={todo}
-                />
-            ))}
+            {
+                todos.length === 0 ? (
+                    <p className="text-center text-gray-500 py-4">No todos found</p>
+                ) : (
+                    todos.map((todo, key) => (
+                        <TodoItem
+                            key={key}
+                            isDark={isDark}
+                            todo={todo}
+                            onToggle={onToggle}
+                            onDelete={onDelete}
+                        />
+                    ))
+                )
+            }
         </div>
     )
 }

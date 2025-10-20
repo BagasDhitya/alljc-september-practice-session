@@ -1,33 +1,26 @@
 'use client'
 interface TodoFooterProps {
-    isDark: boolean
+    isDark: boolean,
+    totalActive: number,
+    onFilterChange: (val: 'all' | 'active' | 'completed') => void,
+    currentFilter: 'all' | 'active' | 'completed',
+    onClearCompleted: () => void
 }
 
-export default function TodoFooter({ isDark }: TodoFooterProps) {
-
-    function handleFilter(type: string) {
-        // untuk latihan besoknya
-    }
-
-    function handleClearCompleted() {
-        // untuk latihan besoknya
-    }
-
+export default function TodoFooter({ isDark, totalActive, onFilterChange, currentFilter, onClearCompleted }: TodoFooterProps) {
     return (
         <div className={`${isDark ? "bg-slate-800" : "bg-white"} rounded-md mt-2 shadow-md flex flex-col sm:flex-row justify-between items-center px-6 py-3 text-sm text-gray-400`}>
-            <p>5 items left</p>
+            <p>{totalActive} items left</p>
             <div className="flex gap-4 my-2 sm:my-0">
-                <button onClick={() => handleFilter("all")} className="font-bold text-blue-500">
-                    All
-                </button>
-                <button onClick={() => handleFilter("active")}>
-                    Active
-                </button>
-                <button onClick={() => handleFilter("completed")}>
-                    Completed
-                </button>
+                {['all', 'active', 'completed'].map((cat, key) => (
+                    <button
+                        key={key}
+                        onClick={() => onFilterChange(cat as any)}
+                        className={`capitalize ${currentFilter === cat ? "text-blue-500 font-semibold" : ""}`}
+                    >{cat}</button>
+                ))}
             </div>
-            <button onClick={handleClearCompleted}>Clear Completed</button>
+            <button onClick={onClearCompleted}>Clear Completed</button>
         </div>
     )
 }
