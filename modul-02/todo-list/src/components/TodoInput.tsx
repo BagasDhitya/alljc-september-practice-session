@@ -3,42 +3,50 @@ import React, { useState } from 'react'
 
 interface TodoInputProps {
     isDark?: boolean
-    onAdd: (text: string) => void
+    onAdd: (text: string, deadline: string) => void
     onSearch: (text: string) => void
 }
 
 export default function TodoInput({ isDark, onAdd, onSearch }: TodoInputProps) {
     const [input, setInput] = useState<string>("")
+    const [deadline, setDeadline] = useState<string>("")
 
-    function handleAddTodo() {
-        onAdd(input)
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault()
+        onAdd(input, deadline)
         setInput("")
-    }
-
-    function searchTodo(e: React.ChangeEvent<HTMLInputElement>) {
-        const text = e.target.value
-        setInput(text)
-        onSearch(text)
+        setDeadline("")
     }
 
     return (
-        <div className={`relative ${isDark ? 'bg-slate-800' : 'bg-white'} rounded-md shadow-md mt-6 flex items-center px-4 py-3`}>
+        <form
+            onSubmit={handleSubmit}
+            className='flex flex-col sm:flex-row gap-2 mt-6'
+        >
             <input
                 type="text"
                 value={input}
-                onChange={searchTodo}
-                placeholder='Create a new todo or search todo ...'
-                className='w-full outline-none text-gray-700 text-sm placeholder-gray-400 ml-12'
+                onChange={(e) => {
+                    setInput(e.target.value)
+                    onSearch(e.target.value)
+                }}
+                placeholder='Create a new task ...'
+                className={`flex-1 px-4 py-3 rounded-md outline-none 
+                    ${isDark ? "bg-slate-800 text-white placeholder-slate-500" : "bg-white text-slate-700 placeholder-slatte-400"
+                    }`}
+            />
+            <input
+                type="date"
+                value={deadline}
+                onChange={(e) => setDeadline(e.target.value)}
+                className={`px-3 py-3 rounded-md cursor-pointer ${isDark ? "bg-slate-800 text-slate-300" : "bg-slate-100 text-slate-700"}`}
             />
             <button
-                onClick={handleAddTodo}
-                className='absolute left-4 w-5 h-5 border border-gray-300 rounded-full'></button>
-            <button
-                onClick={() => onSearch(input)}
-                className='absolute right-4 text-gray-500 hover:text-gray-700 text-sm'
+                type='submit'
+                className={`px-5 py-3 font-semibold rounded-md ${isDark ? "bg-blue-600 hover:bg-blue-700" : "bg-blue-500 hover:bg-blue-600"} text-white`}
             >
-                🔍
+                Add
             </button>
-        </div>
+        </form>
     )
 }
