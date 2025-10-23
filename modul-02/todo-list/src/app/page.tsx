@@ -10,8 +10,13 @@ import { useThemeToggle } from "@/hooks/useThemeToggle"
 import { useTodoParams } from "@/hooks/useTodoParams"
 import { useTodoActions } from "@/hooks/useTodoActions"
 import { useFilteredTodos } from "@/hooks/useFilteredTodos"
+import { useProtectedPage } from "@/hooks/useProtectedPage"
 
 export default function Page() {
+
+  // proteksi halaman ketika user belum login
+  useProtectedPage()
+
   const { isDark, toggleTheme } = useThemeToggle()
   const { filter, setFilter, search, setSearch } = useTodoParams()
   const { todos, createTodo, toggleTodo, deleteTodo, clearCompleted, updateTodoText, updateTodoDate } = useTodoActions(todoItems)

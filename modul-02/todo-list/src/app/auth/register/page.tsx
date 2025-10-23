@@ -6,31 +6,19 @@ import InputField from '@/components/ui/InputField'
 import Button from '@/components/ui/Button'
 import AuthFormWrapper from '@/components/AuthFormWrapper'
 
-import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import { backendlessAuth } from '@/lib/api'
+import { useAuthStore } from '@/stores/authStore'
+
 
 export default function Register() {
-    const [loading, setLoading] = useState<boolean>(false)
     const router = useRouter()
 
+    const { register: registerUser, loading } = useAuthStore()
     const { register, handleSubmit, formState: { errors } } = useForm<RegisterSchema>({ resolver: zodResolver(registerSchema) })
 
     async function onSubmit(data: RegisterSchema) {
-        try {
-            setLoading(true)
-            await backendlessAuth.post('', {
-                email: data.email,
-                password: data.password,
-                name: data.name
-            })
-            alert('Registration succesful!')
-            router.push('/auth/login')
-        } catch (error: any) {
-            alert(error.response?.data?.message || "Something went wrong")
-        } finally {
-            setLoading(false)
-        }
+        await registerUser(data)
+        router.push('/auth/login')
     }
 
     return (
