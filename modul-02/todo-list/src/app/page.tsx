@@ -15,7 +15,7 @@ import { useProtectedPage } from "@/hooks/useProtectedPage"
 export default function Page() {
 
   // proteksi halaman ketika user belum login
-  useProtectedPage()
+  // useProtectedPage()
 
   const { isDark, toggleTheme } = useThemeToggle()
   const { filter, setFilter, search, setSearch } = useTodoParams()
