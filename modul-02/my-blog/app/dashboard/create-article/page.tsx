@@ -32,7 +32,7 @@ export default function page() {
             await createArticle({
                 title: values.title,
                 content: values.content,
-                image: values.image
+                image: fileUrl
             })
             toast.success('Article published successfully')
             router.push('/home')
