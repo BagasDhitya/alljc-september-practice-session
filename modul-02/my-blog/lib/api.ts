@@ -16,6 +16,7 @@ interface Article {
     title: string,
     content: string,
     image: string,
+    author: string,
 }
 
 export async function handleUploadImage(file: File) {

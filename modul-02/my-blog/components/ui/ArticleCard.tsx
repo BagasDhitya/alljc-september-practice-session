@@ -1,3 +1,6 @@
+'use client'
+import { useRouter } from "next/navigation"
+
 interface ArticleProps {
     objectId: string,
     title: string,
@@ -5,10 +8,11 @@ interface ArticleProps {
     content: string,
     author: string,
     created: string
+    onClick?: () => void
 }
 
 export default function ArticleCard({ article }: { article: ArticleProps }) {
-
+    const router = useRouter()
     const date = new Date(article.created).toLocaleDateString(
         'id-ID', {
         day: "2-digit",
@@ -18,7 +22,9 @@ export default function ArticleCard({ article }: { article: ArticleProps }) {
     )
 
     return (
-        <div className="bg-white shadow-sm rounded-lg p-4 mb-4 hover:shadow-md">
+        <div
+            onClick={() => router.push(`/home/${article.objectId}`)}
+            className="bg-white shadow-sm rounded-lg p-4 mb-4 hover:shadow-md">
             {
                 article.image && (
                     <img

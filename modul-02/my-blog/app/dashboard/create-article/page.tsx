@@ -27,11 +27,15 @@ export default function page() {
     }
 
     async function onSubmit(values: ArticleForm) {
+        console.log(values)
         try {
             const fileUrl = await handleUploadImage(values.image[0])
+            console.log('file Url : ', fileUrl)
+
             await createArticle({
                 title: values.title,
                 content: values.content,
+                author: values.author,
                 image: fileUrl
             })
             toast.success('Article published successfully')
@@ -79,6 +83,22 @@ export default function page() {
                             {errors.content && (
                                 <p className="text-red-500 text-sm mt-1">
                                     {errors.content.message}
+                                </p>
+                            )}
+                        </div>
+
+                        {/* Author */}
+                        <div>
+                            <label className="block text-gray-700 mb-2">Author</label>
+                            <input
+                                {...register("author")}
+                                type="text"
+                                className="w-full border rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                placeholder="Write author name here..."
+                            />
+                            {errors.author && (
+                                <p className="text-red-500 text-sm mt-1">
+                                    {errors.author.message}
                                 </p>
                             )}
                         </div>
@@ -136,6 +156,11 @@ export default function page() {
                         {/* Content */}
                         <p className="text-gray-700 whitespace-pre-wrap">
                             {watch("content") || "No content provided yet."}
+                        </p>
+
+                        {/* Author */}
+                        <p className="text-gray-700 whitespace-pre-wrap">
+                            {watch("author") || "No author provided yet."}
                         </p>
 
                         <div className="flex justify-between mt-6">
