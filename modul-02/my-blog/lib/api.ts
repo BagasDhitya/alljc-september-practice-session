@@ -4,9 +4,9 @@ import { uploadImage } from "@/helpers/fileUpload.helper";
 const APP_ID = process.env.NEXT_PUBLIC_APP_ID!
 const REST_API_KEY = process.env.NEXT_PUBLIC_REST_API_KEY!
 
-const BASE_URL = `https://api.backendless.com/${APP_ID}/${REST_API_KEY}/`
+export const BASE_URL = `https://api.backendless.com/${APP_ID}/${REST_API_KEY}/`
 
-interface User {
+export interface User {
     username: string,
     email: string,
     password: string

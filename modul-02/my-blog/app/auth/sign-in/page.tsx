@@ -8,11 +8,26 @@ import { useRouter } from "next/navigation"
 import { useState } from "react"
 import Cookies from 'js-cookie'
 
+import { signIn } from "next-auth/react"
+
 export default function page() {
     const router = useRouter()
     const [loading, setLoading] = useState<boolean>(false)
 
     const { register, handleSubmit, formState: { errors } } = useForm<SignInFormType>({ resolver: zodResolver(signInSchema) })
+
+    async function handleGoogleSignIn() {
+        try {
+            setLoading(true)
+            await signIn('google', {
+                callbackUrl: '/'
+            })
+        } catch (error) {
+            toast.error('Google sign in failed')
+        } finally {
+            setLoading(false)
+        }
+    }
 
     async function onSubmit(data: SignInFormType) {
         try {
@@ -63,6 +78,16 @@ export default function page() {
 
                 <button type="submit" className={`w-full py-2 rounded-md text-white font-medium ${loading ? "bg-blue-300 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700"}`}>
                     {loading ? "Signing in ... " : "Sign In"}
+                </button>
+
+                <div className="my-4 text-center text-sm text-gray-500">or</div>
+
+                <button
+                    type="button"
+                    onClick={handleGoogleSignIn}
+                    className={`w-full py-2 rounded-md text-white font-medium ${loading ? 'bg-red-300 cursor-not-allowed' : 'bg-red-500 hover:bg-red-600'}`}
+                >
+                    {loading ? 'Connecting ...' : 'Sign in with Google'}
                 </button>
             </form>
 
