@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sembakoo Admin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col items-center py-10">
+    <div class="w-full max-w-5xl bg-white shadow-lg rounded-xl p-8">
+        <h1 class="text-2xl font-bold mb-6 text-center text-gray-700">
+            🛒 Sembakoo Product Management
+        </h1>
+
+        <!-- FORM CREATE / UPDATE -->
+        <form id="productForm" class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 border p-4 rounded-lg bg-gray-50">
+            <input type="hidden" id="productId" name="id" />
+            <div>
+                <label class="block text-sm font-semibold mb-1">Title</label>
+                <input type="text" id="title"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400"
+                    placeholder="Nama produk..." />
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-1">Image URL</label>
+                <input type="text" id="image"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400"
+                    placeholder="https://example.com/image.jpg" />
+            </div>
+
+            <div class="md:col-span-2">
+                <label class="block text-sm font-semibold mb-1">Description</label>
+                <textarea id="description"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400"
+                    placeholder="Deskripsi produk..."></textarea>
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-1">Price (Rp)</label>
+                <input type="number" id="price"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400"
+                    placeholder="Masukkan harga..." />
+            </div>
+
+            <div>
+                <label class="block text-sm font-semibold mb-1">Stock</label>
+                <input type="number" id="stock"
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:ring-2 focus:ring-blue-400"
+                    placeholder="Jumlah stok..." />
+            </div>
+
+            <div class="md:col-span-2 flex justify-end">
+                <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition">
+                    Save Product
+                </button>
+            </div>
+        </form>
+
+        <!-- TABLE LIST PRODUCT -->
+        <table class="w-full text-left border-collapse">
+            <thead>
+                <tr class="bg-blue-50 border-b">
+                    <th class="py-3 px-4 font-semibold">ID</th>
+                    <th class="py-3 px-4 font-semibold">Title</th>
+                    <th class="py-3 px-4 font-semibold">Price</th>
+                    <th class="py-3 px-4 font-semibold">Stock</th>
+                    <th class="py-3 px-4 font-semibold">Image</th>
+                    <th class="py-3 px-4 font-semibold text-center">Action</th>
+                </tr>
+            </thead>
+            <tbody id="productTableBody"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:8000/api/products';
+        const form = document.getElementById('productForm');
+        const tableBody = document.getElementById('productTableBody');
+        let editingId = null;
+
+        // Fetch All Products
+        async function fetchProducts() {
+            const res = await fetch(API_URL);
+            const result = await res.json();
+            renderTable(result.data);
+        }
+
+        // Render Table Rows
+        function renderTable(products) {
+            tableBody.innerHTML = '';
+            products.forEach((p) => {
+                const row = document.createElement('tr');
+                row.className = 'border-b hover:bg-gray-50';
+
+                row.innerHTML = `
+            <td class="py-3 px-4">${p.id}</td>
+            <td class="py-3 px-4">${p.title}</td>
+            <td class="py-3 px-4">Rp ${p.price.toLocaleString()}</td>
+            <td class="py-3 px-4">${p.stock}</td>
+            <td class="py-3 px-4">
+              <img src="${p.image}" alt="${p.title}" class="w-14 h-14 rounded-lg object-cover"/>
+            </td>
+            <td class="py-3 px-4 text-center">
+              <button
+                onclick="editProduct(${p.id})"
+                class="bg-yellow-400 hover:bg-yellow-500 text-white px-3 py-1 rounded-lg text-sm transition"
+              >Edit</button>
+            </td>
+          `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Handle Create / Update
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const productData = {
+                title: document.getElementById('title').value,
+                image: document.getElementById('image').value,
+                description: document.getElementById('description').value,
+                price: Number(document.getElementById('price').value),
+                stock: Number(document.getElementById('stock').value),
+            };
+
+            const method = editingId ? 'PUT' : 'POST';
+            const url = editingId ? `${API_URL}/${editingId}` : API_URL;
+
+            const res = await fetch(url, {
+                method,
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(productData),
+            });
+
+            const result = await res.json();
+            alert(result.message || 'Success');
+
+            form.reset();
+            editingId = null;
+            fetchProducts();
+        });
+
+        // Edit Product
+        async function editProduct(id) {
+            const res = await fetch(`${API_URL}/${id}`);
+            const result = await res.json();
+            const p = result.data;
+
+            document.getElementById('title').value = p.title;
+            document.getElementById('image').value = p.image;
+            document.getElementById('description').value = p.description;
+            document.getElementById('price').value = p.price;
+            document.getElementById('stock').value = p.stock;
+            editingId = p.id;
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        fetchProducts();
+    </script>
+</body>
+
+</html>

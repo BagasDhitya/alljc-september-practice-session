@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Beras Pandan Wangi 5kg",
+    "image": "https://example.com/images/beras-pandan-wangi-5kg.jpg",
+    "description": "Beras premium dengan aroma pandan wangi khas, pulen, dan cocok untuk konsumsi harian keluarga.",
+    "price": 68000,
+    "stock": 135
+  },
+  {
+    "id": 2,
+    "title": "Minyak Goreng Tropical 2L",
+    "image": "https://example.com/images/minyak-goreng-tropical-2l.jpg",
+    "description": "Minyak goreng nabati berkualitas tinggi yang jernih dan tahan panas, cocok untuk menggoreng dan menumis.",
+    "price": 40500,
+    "stock": 85
+  },
+  {
+    "id": 3,
+    "title": "Gula Pasir Gulaku 1kg",
+    "image": "https://example.com/images/gula-pasir-gulaku-1kg.jpg",
+    "description": "Gula pasir putih berkualitas dengan tingkat kemurnian tinggi, mudah larut dan manis alami.",
+    "price": 16500,
+    "stock": 200
+  },
+  {
+    "id": 4,
+    "title": "Telur Ayam Negeri 1kg",
+    "image": "https://example.com/images/telur-ayam-negeri-1kg.jpg",
+    "description": "Telur ayam segar dengan ukuran seragam, sumber protein tinggi dan cocok untuk berbagai masakan.",
+    "price": 29000,
+    "stock": 95
+  },
+  {
+    "id": 5,
+    "title": "Mie Instan Indomie Goreng (5 pack)",
+    "image": "https://example.com/images/indomie-goreng-5pack.jpg",
+    "description": "Mie instan legendaris dengan bumbu khas gurih manis, praktis untuk disajikan kapan saja.",
+    "price": 14500,
+    "stock": 165
+  },
+  {
+    "id": 6,
+    "title": "Minyak Goreng Bimoli 2L",
+    "image": "https://images.tokopedia.net/img/cache/700/product-1/2020/3/16/1234567/1234567_2a2c7c17-5d13-4e26-a0b7-6f28ecbb0ef9_700_700.jpg",
+    "description": "Minyak goreng Bimoli 2 liter terbuat dari minyak kelapa sawit murni yang menghasilkan masakan lebih renyah dan lezat. Cocok untuk menggoreng, menumis, dan memanggang.",
+    "price": 36000,
+    "stock": 150
+  }
+]
