@@ -4,6 +4,17 @@ import { Product } from "../dto/product.dto";
 
 export const productController = {
     getAll(req: Request, res: Response) {
+        const { search } = req.query
+
+        // kalau ada search
+        if (typeof search === 'string') {
+            const results = productService.search(search)
+            return res.status(200).send({
+                success: true,
+                data: results
+            })
+        }
+
         const products = productService.getAll()
         res.status(200).send({
             success: true,
@@ -65,6 +76,24 @@ export const productController = {
             success: true,
             message: 'Success update product',
             data: updated
+        })
+    },
+
+    delete(req: Request, res: Response) {
+        const { id } = req.params
+        const deleted = productService.delete(Number(id))
+
+        // jika produk yang mau dihapus tidak ada
+        if (!deleted) {
+            res.status(404).send({
+                success: false,
+                message: 'Product not found'
+            })
+        }
+
+        res.status(201).send({
+            success: true,
+            message: 'Success remove product'
         })
     }
 }

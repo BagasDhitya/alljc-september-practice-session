@@ -48,5 +48,29 @@ export const productService = {
         products[index] = { ...products[index], ...updatedData }
         writeProduct(products)
         return products[index]
+    },
+
+    delete(id: number): boolean {
+        const products = readProducts()
+        const newProducts = products.filter((item) => item.id !== id)
+
+        // target : 6
+        // [1,2,3,4,5,6] -> [1,2,3,4,5]
+
+        // validasi jika produk masih ada
+        if (newProducts.length === products.length) {
+            return false
+        }
+
+        writeProduct(newProducts)
+        return true
+    },
+
+    // search by keyword (title/description)
+    search(keyword: string): Product[] {
+        const products = readProducts()
+        const lowerKeyword = keyword.toLowerCase()
+
+        return products.filter((p) => p.title.toLowerCase().includes(lowerKeyword) || p.description.toLowerCase().includes(keyword))
     }
 }

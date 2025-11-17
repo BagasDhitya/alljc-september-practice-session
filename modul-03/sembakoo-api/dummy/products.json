@@ -32,19 +32,19 @@
     "stock": 95
   },
   {
-    "id": 5,
-    "title": "Mie Instan Indomie Goreng (5 pack)",
-    "image": "https://example.com/images/indomie-goreng-5pack.jpg",
-    "description": "Mie instan legendaris dengan bumbu khas gurih manis, praktis untuk disajikan kapan saja.",
-    "price": 14500,
-    "stock": 165
-  },
-  {
     "id": 6,
     "title": "Minyak Goreng Bimoli 2L",
     "image": "https://images.tokopedia.net/img/cache/700/product-1/2020/3/16/1234567/1234567_2a2c7c17-5d13-4e26-a0b7-6f28ecbb0ef9_700_700.jpg",
     "description": "Minyak goreng Bimoli 2 liter terbuat dari minyak kelapa sawit murni yang menghasilkan masakan lebih renyah dan lezat. Cocok untuk menggoreng, menumis, dan memanggang.",
     "price": 36000,
     "stock": 150
+  },
+  {
+    "id": 7,
+    "title": "Pepsodent Whitening",
+    "image": "https://i.pinimg.com/736x/37/10/43/3710437931e282e43dcb97f94ddeb9ab.jpg",
+    "description": "Mencerahkan gigi anda",
+    "price": 12500,
+    "stock": 90
   }
 ]
