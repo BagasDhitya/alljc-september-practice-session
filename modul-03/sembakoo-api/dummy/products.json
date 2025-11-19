@@ -46,5 +46,13 @@
     "description": "Mencerahkan gigi anda",
     "price": 12500,
     "stock": 90
+  },
+  {
+    "id": 8,
+    "title": "Sabun Mandi Lifebuoy 450ml",
+    "image": "https://example.com/images/sabun-mandi-lifebuoy-450ml.jpg",
+    "description": "Sabun mandi antibakteri yang melindungi kulit dari kuman dan membuat kulit tetap segar.",
+    "price": 18500,
+    "stock": 120
   }
 ]
